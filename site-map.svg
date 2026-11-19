@@ -2,9 +2,9 @@
   <style>
     text { font: 600 15px ui-monospace, Menlo, Consolas, monospace; fill: #14213d; }
     .box { fill: #fff; stroke: #14213d; stroke-width: 2; }
-    .folder { fill: #ffe2cc; stroke: #f2711c; stroke-width: 2; }
-    .arrow { fill: none; stroke: #f2711c; stroke-width: 3; stroke-dasharray: 7 6; }
-    .label { font: 700 13px system-ui, sans-serif; fill: #f2711c; }
+    .folder { fill: #f3e6d6; stroke: #3b2f2a; stroke-width: 2; }
+    .arrow { fill: none; stroke: #3b2f2a; stroke-width: 3; stroke-dasharray: 7 6; }
+    .label { font: 700 13px system-ui, sans-serif; fill: #3b2f2a; }
   </style>
   <rect width="480" height="320" rx="16" fill="#eef1f7"/>
   <rect class="box" x="180" y="24" width="120" height="40" rx="8"/>
