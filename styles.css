@@ -7,8 +7,8 @@
 
 /* ---------- 1. Colours & base ---------- */
 :root {
-  --navy: #14213d;      /* main brand colour */
-  --orange: #f2711c;    /* accent: buttons, highlights */
+  --navy: #3c0008;      /* main brand colour */
+  --orange: #e9ecef;    /* accent: buttons, highlights */
   --paper: #ffffff;     /* page background */
   --soft: #eef1f7;      /* panels */
   --ink: #1b1f2a;       /* body text */
