@@ -1,6 +1,6 @@
 # Path Finder: BMIS 235 HTML-4 Final Site
 
-**Live site:** _add your Cloudflare Pages link here_
+**Live site:** _https://bmis235-html-4.kmcdonald4.workers.dev/_
 **Path:** 3 · Full build
 
 ## Concept
