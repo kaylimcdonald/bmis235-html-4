@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Path Finder · Focus</title>
+  <link rel="icon" href="img/logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">Path Finder</a>
+      <nav aria-label="Main menu">
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="learn.html">Learn</a></li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="focus.html" aria-current="page">Focus</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Focus timer</h1>
+    <p class="lede">Short, timed sessions. Pick a length and what you're working on, then press Start. Every session is logged and counts toward your streak.</p>
+
+    <div class="timer-layout">
+      <section class="card" aria-label="Timer">
+        <div class="clock" id="clock" role="timer" aria-live="off">15:00</div>
+        <div class="ring"><span id="ring"></span></div>
+
+        <div class="field">
+          <label for="length">Session length</label>
+          <select id="length">
+            <option value="10">10 minutes: quick review</option>
+            <option value="15" selected>15 minutes: one lesson section</option>
+            <option value="25">25 minutes: classic pomodoro</option>
+            <option value="45">45 minutes: deep work</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="label">What are you studying?</label>
+          <input id="label" list="label-ideas" placeholder="e.g. File paths, or another class" maxlength="60">
+          <datalist id="label-ideas">
+            <option value="Links lesson"></option>
+            <option value="Images lesson"></option>
+            <option value="File paths lesson"></option>
+            <option value="Quiz practice"></option>
+            <option value="HTML-4 site build"></option>
+          </datalist>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn" id="start" type="button">Start</button>
+          <button class="btn ghost" id="stop" type="button" disabled>Stop &amp; log</button>
+        </div>
+        <p class="click-note" id="timer-msg" aria-live="polite"></p>
+      </section>
+
+      <section aria-label="Your study log">
+        <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+          <div class="card"><div class="stat" id="today">0</div><div class="stat-label">minutes today</div></div>
+          <div class="card"><div class="stat" id="streak">0</div><div class="stat-label">day streak</div></div>
+        </div>
+        <h2>Last 7 days</h2>
+        <div class="day-bars" id="bars"></div>
+        <h2>Recent sessions</h2>
+        <ul class="log" id="log"></ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">BMIS 235 · HTML-4 final site · Path 3 learning tool</div>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/focus.js"></script>
+</body>
+</html>

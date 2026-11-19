@@ -1,0 +1,317 @@
+/* =========================================================
+   Path Finder — shared stylesheet (linked on every page)
+   Sections: 1 colours & base · 2 header/menu · 3 layout
+             4 cards & buttons · 5 lesson · 6 playground
+             7 quiz & puzzles · 8 focus timer · 9 footer
+   ========================================================= */
+
+/* ---------- 1. Colours & base ---------- */
+:root {
+  --navy: #14213d;      /* main brand colour */
+  --orange: #f2711c;    /* accent: buttons, highlights */
+  --paper: #ffffff;     /* page background */
+  --soft: #eef1f7;      /* panels */
+  --ink: #1b1f2a;       /* body text */
+  --muted: #5a6274;     /* secondary text */
+  --line: #d6dbe6;      /* borders */
+  --good: #1a7f4b;      /* correct answers */
+  --bad: #c0362c;       /* wrong answers / warnings */
+  --radius: 10px;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --navy: #0b1530;
+    --paper: #121826;
+    --soft: #1b2336;
+    --ink: #e8ecf5;
+    --muted: #a3acc0;
+    --line: #2e3850;
+    --good: #4cc68a;
+    --bad: #ff7b6e;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2, h3 { line-height: 1.15; color: inherit; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0 0 .4em; }
+h2 { font-size: 1.6rem; margin: 1.6em 0 .5em; }
+h3 { font-size: 1.15rem; margin: 1.2em 0 .4em; }
+
+a { color: var(--orange); }
+code, pre, textarea { font-family: var(--mono); font-size: .92em; }
+code { background: var(--soft); padding: .1em .35em; border-radius: 4px; }
+pre {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+/* The hidden attribute must win over display rules below */
+[hidden] { display: none !important; }
+
+/* Text for screen readers only */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- 2. Header & menu (same on every page) ---------- */
+.site-header { background: var(--navy); color: #fff; }
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  padding-block: 14px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+.brand img { width: 34px; height: 34px; }
+
+.menu { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.menu a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.menu a:hover { background: rgba(255, 255, 255, .12); }
+/* aria-current="page" marks the page you are on */
+.menu a[aria-current="page"] { background: var(--orange); color: #14213d; }
+
+/* ---------- 3. Layout ---------- */
+.wrap { max-width: 1100px; margin: 0 auto; padding-inline: max(4vw, 16px); }
+main { padding-block: 32px 64px; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.hero img { width: 100%; height: auto; }
+@media (max-width: 760px) { .hero { grid-template-columns: 1fr; } }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* ---------- 4. Cards & buttons ---------- */
+.card {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.card h3 { margin-top: 0; }
+.stat { font-size: 2.2rem; font-weight: 800; line-height: 1; color: var(--orange); }
+.stat-label { color: var(--muted); font-size: .95rem; margin-top: 6px; }
+
+.btn {
+  display: inline-block;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 2px solid var(--orange);
+  border-radius: 999px;
+  background: var(--orange);
+  color: #14213d;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.07); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+
+/* ---------- 5. Lesson page ---------- */
+.lesson-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 8px; }
+.lesson-nav a {
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.lesson { border-top: 1px solid var(--line); padding-top: 8px; }
+.callout {
+  border-left: 5px solid var(--orange);
+  background: var(--soft);
+  padding: 12px 16px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 16px 0;
+}
+.read-check { display: flex; gap: 10px; align-items: center; margin: 18px 0 8px; font-weight: 600; }
+.read-check input { width: 22px; height: 22px; accent-color: var(--orange); }
+
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.table-scroll { overflow-x: auto; }
+
+.tree {
+  font-family: var(--mono);
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  white-space: pre;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+/* ---------- 6. Live playground ---------- */
+.playground { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 860px) { .playground { grid-template-columns: 1fr; } }
+.playground textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--soft);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+}
+.playground iframe {
+  width: 100%;
+  height: 300px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.presets button {
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+.presets button:hover { border-color: var(--orange); }
+.inspector { margin-top: 16px; }
+.inspector ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.inspector li {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  overflow-wrap: anywhere;
+}
+.tag { font-weight: 700; font-family: var(--mono); }
+.ok { color: var(--good); font-weight: 600; }
+.warn { color: var(--bad); font-weight: 600; }
+.click-note { min-height: 1.6em; color: var(--muted); margin-top: 8px; }
+
+/* ---------- 7. Quiz & path puzzles ---------- */
+.quiz-box { max-width: 720px; }
+.progress-bar { height: 8px; background: var(--soft); border-radius: 999px; overflow: hidden; margin-bottom: 18px; }
+.progress-bar span { display: block; height: 100%; background: var(--orange); width: 0; transition: width .3s; }
+.options { display: grid; gap: 10px; margin: 16px 0; }
+.options button {
+  text-align: left;
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.options button:hover:not(:disabled) { border-color: var(--orange); }
+.options button.right { border-color: var(--good); background: color-mix(in srgb, var(--good) 12%, var(--paper)); }
+.options button.wrong { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 12%, var(--paper)); }
+.feedback { padding: 12px 16px; border-radius: var(--radius); background: var(--soft); }
+
+.puzzle-layout { display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: start; }
+@media (max-width: 760px) { .puzzle-layout { grid-template-columns: 1fr; } }
+.puzzle { margin-bottom: 14px; }
+.puzzle form { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.puzzle input {
+  flex: 1 1 220px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 16px;
+}
+.puzzle.solved { border-color: var(--good); }
+
+/* ---------- 8. Focus timer ---------- */
+.timer-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start; }
+@media (max-width: 820px) { .timer-layout { grid-template-columns: 1fr; } }
+.clock {
+  font-size: clamp(4rem, 14vw, 7.5rem);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--navy);
+  margin: 10px 0;
+}
+@media (prefers-color-scheme: dark) { .clock { color: var(--ink); } }
+.ring { height: 10px; background: var(--paper); border-radius: 999px; overflow: hidden; border: 1px solid var(--line); }
+.ring span { display: block; height: 100%; width: 0; background: var(--orange); }
+.field { display: grid; gap: 6px; margin-top: 14px; }
+.field select, .field input {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+.day-bars { display: grid; gap: 6px; }
+.day-bar { display: grid; grid-template-columns: 44px 1fr 56px; gap: 10px; align-items: center; font-size: .95rem; }
+.day-bar .track { height: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.day-bar .fill { height: 100%; background: var(--orange); }
+.day-bar .mins { text-align: right; font-variant-numeric: tabular-nums; }
+.log { list-style: none; padding: 0; margin: 0; }
+.log li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.log button { border: 0; background: none; color: var(--muted); cursor: pointer; font: inherit; }
+
+/* ---------- 9. Footer ---------- */
+.site-footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+.site-footer .wrap { padding-block: 20px; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Illustration of mountains under an orange sun">
+  <rect width="400" height="240" fill="#bfe3f5"/>
+  <circle cx="300" cy="70" r="34" fill="#f2711c"/>
+  <path d="M0 200 L110 80 L190 170 L250 110 L400 220 L400 240 L0 240 Z" fill="#14213d"/>
+  <path d="M110 80 L135 108 L118 102 L100 112 Z" fill="#fff"/>
+  <rect y="210" width="400" height="30" fill="#2f6b4f"/>
+</svg>

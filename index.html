@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Path Finder · Home</title>
+  <meta name="description" content="A study tool for HTML links, images and file paths.">
+  <link rel="icon" href="img/logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Same header and menu on every page -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">Path Finder</a>
+      <nav aria-label="Main menu">
+        <ul class="menu">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="learn.html">Learn</a></li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="focus.html">Focus</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Never lose a link or a broken image again.</h1>
+        <p class="lede">Path Finder teaches the three things that break most class websites:
+          <code>&lt;a href&gt;</code> links, <code>&lt;img&gt;</code> tags, and the file paths that connect your pages.</p>
+        <div class="btn-row">
+          <a class="btn" href="learn.html">Start the lesson</a>
+          <a class="btn ghost" href="practice.html">Jump to practice</a>
+        </div>
+      </div>
+      <img src="img/site-map.svg" alt="Diagram of a site folder. index.html links down to img/logo.png, and a page inside the pages folder links back up with ../index.html." width="480" height="320">
+    </section>
+
+    <h2>Your progress</h2>
+    <div class="grid" id="stats">
+      <div class="card"><div class="stat" id="stat-streak">0</div><div class="stat-label">day streak</div></div>
+      <div class="card"><div class="stat" id="stat-week">0</div><div class="stat-label">minutes studied this week</div></div>
+      <div class="card"><div class="stat" id="stat-lessons">0/4</div><div class="stat-label">lesson sections read</div></div>
+      <div class="card"><div class="stat" id="stat-quiz">–</div><div class="stat-label">best quiz score</div></div>
+      <div class="card"><div class="stat" id="stat-puzzles">0/6</div><div class="stat-label">path puzzles solved</div></div>
+    </div>
+    <p class="stat-label">Progress is saved in this browser only.</p>
+
+    <h2>How it works</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>1 · See it live</h3>
+        <p>Read a short section, then edit real HTML in the playground and watch the result change as you type. The inspector shows where every link goes and which images are broken.</p>
+        <a href="learn.html">Go to Learn</a>
+      </div>
+      <div class="card">
+        <h3>2 · Quiz yourself</h3>
+        <p>Ten questions with instant feedback that explains <em>why</em>, plus six puzzles where you type the path between two files.</p>
+        <a href="practice.html">Go to Practice</a>
+      </div>
+      <div class="card">
+        <h3>3 · Study in short bursts</h3>
+        <p>Start a 10 to 45 minute focus timer. Each session is logged so you can keep your streak going, for this class or any other.</p>
+        <a href="focus.html">Go to Focus</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">BMIS 235 · HTML-4 final site · Path 3 learning tool</div>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script>
+    // Fill in the progress cards from saved data.
+    {
+      const data = Progress.load();
+      document.getElementById("stat-streak").textContent = Progress.streak();
+      document.getElementById("stat-week").textContent = Progress.weekMinutes();
+      document.getElementById("stat-lessons").textContent = data.lessonsRead.length + "/4";
+      document.getElementById("stat-quiz").textContent = data.quizBest === null ? "–" : data.quizBest + "/10";
+      document.getElementById("stat-puzzles").textContent = data.puzzlesSolved.length + "/6";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Path Finder · Learn</title>
+  <link rel="icon" href="img/logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">Path Finder</a>
+      <nav aria-label="Main menu">
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="learn.html" aria-current="page">Learn</a></li>
+          <li><a href="practice.html">Practice</a></li>
+          <li><a href="focus.html">Focus</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Links, images &amp; file paths</h1>
+    <p class="lede">Four short sections. After each one, try it in the <a href="#playground">live playground</a> at the bottom and tick the box when it makes sense.</p>
+
+    <nav class="lesson-nav" aria-label="Lesson sections">
+      <a href="#links">1 · Links</a>
+      <a href="#images">2 · Images</a>
+      <a href="#paths">3 · File paths</a>
+      <a href="#mistakes">4 · Common mistakes</a>
+      <a href="#playground">Playground</a>
+    </nav>
+
+    <!-- ===== Section 1: links ===== -->
+    <section class="lesson" id="links">
+      <h2>1 · Links with <code>&lt;a&gt;</code></h2>
+      <p>The anchor tag <code>&lt;a&gt;</code> makes a link. Its <code>href</code> attribute (short for <em>hypertext reference</em>) says where the link goes. The text between the opening and closing tag is what people click.</p>
+<pre><code>&lt;a href="about.html"&gt;About me&lt;/a&gt;</code></pre>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>You want to…</th><th>Write this</th></tr></thead>
+          <tbody>
+            <tr><td>Go to another page on your site</td><td><code>&lt;a href="about.html"&gt;About&lt;/a&gt;</code></td></tr>
+            <tr><td>Go to another website</td><td><code>&lt;a href="https://developer.mozilla.org"&gt;MDN&lt;/a&gt;</code></td></tr>
+            <tr><td>Open the link in a new tab</td><td><code>&lt;a href="https://github.com" target="_blank"&gt;GitHub&lt;/a&gt;</code></td></tr>
+            <tr><td>Jump to a section on the same page</td><td><code>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</code> goes to the element with <code>id="contact"</code></td></tr>
+            <tr><td>Start an email</td><td><code>&lt;a href="mailto:me@example.com"&gt;Email me&lt;/a&gt;</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">Write link text that makes sense on its own, like “See my projects”. Avoid “click here”: screen reader users often jump from link to link and only hear the link text.</div>
+      <label class="read-check"><input type="checkbox" data-lesson="links"> I get links</label>
+    </section>
+
+    <!-- ===== Section 2: images ===== -->
+    <section class="lesson" id="images">
+      <h2>2 · Images with <code>&lt;img&gt;</code></h2>
+      <p><code>&lt;img&gt;</code> is a <strong>void element</strong>, so it has no closing tag. It needs two attributes:</p>
+      <ul>
+        <li><code>src</code>: the path to the image file.</li>
+        <li><code>alt</code>: a short description of the image. Screen readers read it out loud, and the browser shows it if the image can't load.</li>
+      </ul>
+<pre><code>&lt;img src="img/sample-photo.svg" alt="Mountains under an orange sun" width="400" height="240"&gt;</code></pre>
+      <img src="img/sample-photo.svg" alt="Mountains under an orange sun" width="400" height="240" style="max-width:100%;height:auto;border-radius:10px">
+      <p><code>width</code> and <code>height</code> are optional, but they let the browser save space for the image before it loads, so the page doesn't jump around.</p>
+      <div class="callout">If an image is only decoration, use an <em>empty</em> alt: <code>alt=""</code>. Screen readers then skip it. Leaving out <code>alt</code> completely is different: some screen readers read the file name out loud instead.</div>
+      <p>To make an image clickable, put it inside a link:</p>
+<pre><code>&lt;a href="index.html"&gt;&lt;img src="img/logo.svg" alt="Path Finder home"&gt;&lt;/a&gt;</code></pre>
+      <label class="read-check"><input type="checkbox" data-lesson="images"> I get images</label>
+    </section>
+
+    <!-- ===== Section 3: file paths ===== -->
+    <section class="lesson" id="paths">
+      <h2>3 · File paths</h2>
+      <p>A path tells the browser how to get from <strong>the file you're writing in</strong> to the file you want. Picture this site:</p>
+<div class="tree">my-site/
+├── index.html
+├── about.html
+├── styles.css
+├── img/
+│   └── logo.png
+└── pages/
+    └── contact.html</div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Kind of path</th><th>Example</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Absolute URL</strong></td><td><code>https://github.com</code></td><td>A full web address. Use it for other websites.</td></tr>
+            <tr><td><strong>Same folder</strong></td><td><code>about.html</code></td><td>From <code>index.html</code>, the file is right next to you.</td></tr>
+            <tr><td><strong>Down into a folder</strong></td><td><code>img/logo.png</code></td><td>From <code>index.html</code>: open <code>img</code>, then find <code>logo.png</code>.</td></tr>
+            <tr><td><strong>Up a folder</strong></td><td><code>../index.html</code></td><td>From <code>pages/contact.html</code>: <code>..</code> means “the folder above me”.</td></tr>
+            <tr><td><strong>Up, then down</strong></td><td><code>../img/logo.png</code></td><td>From <code>pages/contact.html</code>: go up to <code>my-site</code>, then into <code>img</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Paths that don't start with <code>/</code> or <code>https://</code> are <strong>relative</strong>: they always start from the folder that contains the current file. Every <code>../</code> goes up one level, so <code>../../</code> goes up two.</p>
+      <div class="callout"><strong>Watch out for leading slashes.</strong> <code>/img/logo.png</code> starts at the <em>root of the domain</em>. On a GitHub Pages project site like <code>you.github.io/bmis235-html-4/</code>, the root is <code>you.github.io/</code>, so the image isn't found. Plain relative paths work everywhere.</div>
+      <label class="read-check"><input type="checkbox" data-lesson="paths"> I get file paths</label>
+    </section>
+
+    <!-- ===== Section 4: mistakes ===== -->
+    <section class="lesson" id="mistakes">
+      <h2>4 · Common mistakes (and how to spot them)</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Mistake</th><th>Why it breaks</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr><td><code>src="img/Photo.JPG"</code> when the file is <code>photo.jpg</code></td><td>Web servers like GitHub Pages and Cloudflare are <strong>case-sensitive</strong>. Your laptop usually isn't, so it works locally and then breaks online.</td><td>Use only lowercase file names, and copy them exactly.</td></tr>
+            <tr><td><code>src="img\logo.png"</code></td><td>Backslashes are a Windows habit. URLs use forward slashes.</td><td><code>img/logo.png</code></td></tr>
+            <tr><td><code>my photo.jpg</code></td><td>Spaces have to become <code>%20</code> in a URL, which is easy to get wrong.</td><td><code>my-photo.jpg</code></td></tr>
+            <tr><td><code>src="C:/Users/me/Desktop/site/img/logo.png"</code></td><td>That path only exists on your computer. Nobody else can see it.</td><td>A relative path: <code>img/logo.png</code></td></tr>
+            <tr><td><code>href="www.github.com"</code></td><td>Without <code>https://</code>, the browser treats it as a <em>relative</em> path to a file called “www.github.com” on your own site.</td><td><code>https://www.github.com</code></td></tr>
+            <tr><td><code>&lt;img src="logo.png"&gt;&lt;/img&gt;</code></td><td><code>&lt;img&gt;</code> has no closing tag.</td><td><code>&lt;img src="img/logo.png" alt="…"&gt;</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <label class="read-check"><input type="checkbox" data-lesson="mistakes"> I can spot these mistakes</label>
+    </section>
+
+    <!-- ===== Live playground ===== -->
+    <section class="lesson" id="playground">
+      <h2>Live playground</h2>
+      <p>Edit the HTML on the left and the preview updates as you type. The preview acts as if it's saved next to this page, so <code>img/sample-photo.svg</code> and <code>img/logo.svg</code> are real images you can use. Click a link in the preview to see where it <em>would</em> go.</p>
+      <div class="presets" id="presets" aria-label="Load an example"></div>
+      <div class="playground">
+        <div>
+          <label for="code"><strong>Your HTML</strong></label>
+          <textarea id="code" spellcheck="false"></textarea>
+        </div>
+        <div>
+          <strong>Preview</strong>
+          <iframe id="preview" title="Live preview of your HTML"></iframe>
+          <p class="click-note" id="click-note" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="inspector">
+        <h3>Inspector: every link and image in your code</h3>
+        <ul id="inspector"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">BMIS 235 · HTML-4 final site · Path 3 learning tool</div>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/learn.js"></script>
+</body>
+</html>

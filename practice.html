@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Path Finder · Practice</title>
+  <link rel="icon" href="img/logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="img/logo.svg" alt="" width="34" height="34">Path Finder</a>
+      <nav aria-label="Main menu">
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="learn.html">Learn</a></li>
+          <li><a href="practice.html" aria-current="page">Practice</a></li>
+          <li><a href="focus.html">Focus</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Practice</h1>
+    <p class="lede">A 10-question quiz that explains every answer, then six path puzzles where you type the path yourself.</p>
+    <nav class="lesson-nav" aria-label="Practice sections">
+      <a href="#quiz">Quiz</a>
+      <a href="#puzzles">Path puzzles</a>
+    </nav>
+
+    <!-- ===== Quiz ===== -->
+    <section class="lesson" id="quiz">
+      <h2>Quiz</h2>
+      <div class="quiz-box" id="quiz-box">
+        <div class="progress-bar"><span id="quiz-bar"></span></div>
+        <p class="stat-label" id="quiz-count"></p>
+        <h3 id="quiz-question"></h3>
+        <div class="options" id="quiz-options"></div>
+        <div class="feedback" id="quiz-feedback" aria-live="polite" hidden></div>
+        <div class="btn-row"><button class="btn" id="quiz-next" type="button" hidden>Next question</button></div>
+      </div>
+    </section>
+
+    <!-- ===== Path puzzles ===== -->
+    <section class="lesson" id="puzzles">
+      <h2>Path puzzles</h2>
+      <p>Use this site's folders. Type the <strong>relative path</strong> from the file you're editing to the file you want.</p>
+      <div class="puzzle-layout">
+<div class="tree" aria-label="Folder tree">my-site/
+├── index.html
+├── about.html
+├── styles.css
+├── img/
+│   ├── logo.png
+│   └── team/
+│       └── maya.jpg
+└── pages/
+    ├── contact.html
+    └── projects/
+        └── garden.html</div>
+        <div id="puzzle-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">BMIS 235 · HTML-4 final site · Path 3 learning tool</div>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/practice.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-label="Diagram of a website folder: index.html links down into an img folder and a pages folder, and pages link back up with ../">
+  <style>
+    text { font: 600 15px ui-monospace, Menlo, Consolas, monospace; fill: #14213d; }
+    .box { fill: #fff; stroke: #14213d; stroke-width: 2; }
+    .folder { fill: #ffe2cc; stroke: #f2711c; stroke-width: 2; }
+    .arrow { fill: none; stroke: #f2711c; stroke-width: 3; stroke-dasharray: 7 6; }
+    .label { font: 700 13px system-ui, sans-serif; fill: #f2711c; }
+  </style>
+  <rect width="480" height="320" rx="16" fill="#eef1f7"/>
+  <rect class="box" x="180" y="24" width="120" height="40" rx="8"/>
+  <text x="196" y="50">index.html</text>
+  <rect class="folder" x="40" y="140" width="130" height="40" rx="8"/>
+  <text x="80" y="166">img/</text>
+  <rect class="folder" x="310" y="140" width="130" height="40" rx="8"/>
+  <text x="345" y="166">pages/</text>
+  <rect class="box" x="40" y="240" width="130" height="40" rx="8"/>
+  <text x="56" y="266">logo.png</text>
+  <rect class="box" x="310" y="240" width="130" height="40" rx="8"/>
+  <text x="318" y="266">contact.html</text>
+  <path class="arrow" d="M200 66 C150 90 110 110 105 136"/>
+  <text class="label" x="70" y="104">img/logo.png</text>
+  <path class="arrow" d="M105 182 L105 236"/>
+  <path class="arrow" d="M440 252 C478 190 470 80 304 44"/>
+  <text class="label" x="352" y="100">../index.html</text>
+</svg>
