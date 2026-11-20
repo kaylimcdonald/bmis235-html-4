@@ -27,7 +27,7 @@
   function show(msLeft) {
     clock.textContent = fmt(msLeft);
     ring.style.width = startedWith ? ((1 - msLeft / startedWith) * 100) + "%" : "0";
-    document.title = (endsAt ? fmt(msLeft) + " · " : "") + "Path Finder · Focus";
+    document.title = (endsAt ? fmt(msLeft) + " · " : "") + "Link Lab · Focus";
   }
 
   function update() {
